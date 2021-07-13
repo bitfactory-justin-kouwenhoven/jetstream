@@ -7,5 +7,5 @@ down:
 	./vendor/bin/sail down
 
 watch:
-	./vendor/bin/sail npm watch
+	./vendor/bin/sail npm run watch
 
