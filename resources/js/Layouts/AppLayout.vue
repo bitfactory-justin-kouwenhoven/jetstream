@@ -20,6 +20,9 @@
                                 <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </jet-nav-link>
+                                <jet-nav-link :href="route('users.index')" :active="route().current('users.index') || route().current('users.create')">
+                                    Users
+                                </jet-nav-link>
                             </div>
                         </div>
 
@@ -223,6 +226,19 @@
 
             <!-- Page Content -->
             <main>
+                <div class="max-w-7xl mx-auto pt-10 sm:px-6 lg:px-8">
+                    <div v-if="$page.props.flash.message" class="flex justify-between items-center bg-green-200 relative text-green-600 py-3 px-3 rounded-lg">
+                        <div>
+                            <span class="font-semibold text-green-700">Success!</span>
+                            {{ $page.props.flash.message }} 
+                        </div>
+                        <div>
+                            <button type="button" class=" text-green-700">
+                                <span class="text-2xl">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 <slot></slot>
             </main>
         </div>
@@ -236,6 +252,7 @@
     import JetDropdownLink from '@/Jetstream/DropdownLink'
     import JetNavLink from '@/Jetstream/NavLink'
     import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink'
+    import JetActionMessage from '@/Jetstream/ActionMessage'
 
     export default {
         components: {
@@ -245,6 +262,7 @@
             JetDropdownLink,
             JetNavLink,
             JetResponsiveNavLink,
+            JetActionMessage,
         },
 
         data() {

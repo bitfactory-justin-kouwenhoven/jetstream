@@ -1,4 +1,4 @@
-.PHONY: up down watch
+.PHONY: up down watch-poll
 
 up:
 	./vendor/bin/sail up -d
@@ -8,4 +8,3 @@ down:
 
 watch:
 	./vendor/bin/sail npm run watch
-
